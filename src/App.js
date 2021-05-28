@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import Form from './components/Form';
 
 function App() {
 
@@ -22,14 +23,7 @@ function App() {
         <p>
           {data}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Form />
       </header>
     </div>
   );
