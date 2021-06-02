@@ -5,22 +5,10 @@ import Form from './components/Form';
 
 function App() {
 
-  const [data, setData] = useState('');
-
-  const fetchData = async () => {
-    Axios.post('/.netlify/functions/addData');
-    setData('Got it!');
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
-
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          {data}
         </p>
         <Form />
       </header>
