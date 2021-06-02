@@ -8,8 +8,7 @@ function App() {
   const [data, setData] = useState('');
 
   const fetchData = async () => {
-    const results = Axios.get('/.netlify/functions/helloWorld');
-    console.log(results);
+    Axios.post('/.netlify/functions/addData');
     setData('Got it!');
   }
 
