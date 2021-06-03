@@ -5,26 +5,36 @@ import Form from './components/Form';
 
 function App() {
 
-  const [data, setData] = useState('');
+  const [userData, setData] = useState([{name: "Charlie", age: 20, color: "green"}]);
 
   const fetchData = async () => {
     const res = await Axios.get('/.netlify/functions/post');
-    setData(res.data.newPost?.title);
     const arr = Object.values(res.data)
-    console.log(arr);
     setData(arr);
   }
+
+  console.log(userData);
 
   useEffect(() => {
     fetchData()
   }, [])
 
+  const dataHandler = userData.map((u) => {
+      return (
+        <div>
+          <p>{u.name}</p>
+          <p>{u.age}</p>
+          <p>{u.color}</p>
+        </div>
+      )
+    });
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {/* {data} */}
-        </p>
+        <div>
+          {dataHandler}
+        </div>
         <Form />
       </header>
     </div>
