@@ -10,7 +10,9 @@ function App() {
   const fetchData = async () => {
     const res = await Axios.get('/.netlify/functions/post');
     setData(res.data.newPost?.title);
-    console.log(res.data.newPost?.title);
+    const arr = Object.values(res.data)
+    console.log(arr);
+    setData(arr);
   }
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          {data}
+          {/* {data} */}
         </p>
         <Form />
       </header>

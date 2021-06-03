@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Axios from 'axios';
 
 const Form = () => {
 
@@ -8,9 +9,14 @@ const Form = () => {
         setUserObj({...userObj, [event.target.id]: event.target.value});
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(userObj);
+        await Axios.post('/.netlify/functions/addData', {
+            name: userObj.Name,
+            color: userObj.Color,
+            age: userObj.Age,
+        });
     }
     
     return (

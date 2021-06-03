@@ -1,6 +1,6 @@
 const { createClient } = require("@astrajs/collections")
 
-const collection = 'post'
+const collection = 'users'
 
 exports.handler = async function (event, context, callback) {
     const astraClient = await createClient({
@@ -21,12 +21,13 @@ exports.handler = async function (event, context, callback) {
 
     try {
 
-        // const { data, status } = await astraClient.post(basePath, {
-        //     name: "test post",
-        //   });
-        await data.create("newPost", {
-            title: "fuck"
-        }) 
+        const newUser = JSON.parse(event.body);
+        console.log(newUser.name);
+        await data.create({
+            name: newUser.name,
+            color: newUser.color,
+            age: newUser.age
+        });
         
         return {
             statusCode: 200
