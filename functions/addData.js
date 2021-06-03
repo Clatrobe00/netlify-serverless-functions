@@ -24,7 +24,7 @@ exports.handler = async function (event, context, callback) {
         // const { data, status } = await astraClient.post(basePath, {
         //     name: "test post",
         //   });
-        await data.create("new post", {
+        await data.create("newPost", {
             title: "fuck"
         }) 
         
